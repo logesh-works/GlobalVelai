@@ -1,0 +1,16 @@
+from django.contrib import admin
+from .models import CountryList, StateList, DegreeList, SkillList, FieldsList, Applicant, EducationDetails, CertificationDetails, PreferenceDetails, WorkDetails, EmploymentHistory, AwardsDetails, CompanyProfile, JobPostings
+admin.site.register(CountryList)
+admin.site.register(StateList)
+admin.site.register(DegreeList)
+admin.site.register(SkillList)
+admin.site.register(FieldsList)
+admin.site.register(Applicant)
+admin.site.register(EducationDetails)
+admin.site.register(CertificationDetails)
+admin.site.register(PreferenceDetails)
+admin.site.register(WorkDetails)
+admin.site.register(EmploymentHistory)
+admin.site.register(AwardsDetails)
+admin.site.register(CompanyProfile)
+admin.site.register(JobPostings)
