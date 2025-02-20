@@ -7,14 +7,24 @@ SALARY_EXPECTATION = [("4L","4L"),("5L","5L"),("6L+","6L+")]
 
 class CountryList(models.Model):
     country_name = models.CharField("Country Name",max_length=255,default=None)
+    def __str__(self):
+        return self.country_name
 class StateList(models.Model):
     state_name = models.CharField("State Name",max_length=255,default=None)
+    def __str__(self):
+        return self.state_name
 class DegreeList(models.Model):
     degree_name = models.CharField("Degree Name",max_length=255,default=None)
+    def __str__(self):
+        return self.degree_name
 class SkillList(models.Model):
     skill_name =  models.CharField("Skill Name",max_length=255,default=None)
+    def __str__(self):
+        return self.skill_name
 class FieldsList(models.Model):
     field_name =  models.CharField("Field Name",max_length=255,default=None)
+    def __str__(self):
+        return self.field_name
 
 class Applicant(models.Model):
     uuid = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
@@ -31,6 +41,8 @@ class Applicant(models.Model):
     state = models.ForeignKey(StateList, on_delete=models.DO_NOTHING)
     pincode = models.IntegerField()
     country = models.ForeignKey(CountryList, on_delete=models.DO_NOTHING)
+    def __str__(self):
+        return self.first_name
 
 class EducationDetails(models.Model):
     applicant = models.ForeignKey(Applicant, on_delete=models.CASCADE)
@@ -67,6 +79,7 @@ class EmploymentHistory(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
 class AwardsDetails(models.Model):
+    applicant = models.ForeignKey(Applicant,on_delete=models.CASCADE,default=None)
     award_name = models.CharField(max_length=255)
     awarded_organisation = models.CharField(max_length=255)
 
